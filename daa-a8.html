@@ -1,0 +1,14 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>DAA Answers 8 - Hashing &amp; Trees</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=daa-ans.html>Contents</a>|<a href=daa-a7.html>Prev</a>|<a href=daa-a9.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>DAA Answers 8 - Hashing &amp; trees</h1>
+<a name=DAA-Q54></a><h2>DAA-Q54 Hashing; collision resolution</h2>
+<p>Hashing maps a key to a short fixed-length hash code indexing a slot. A collision is two keys to one slot. <b>Chaining:</b> linked list per slot; load factor a=n/m; Theta(1+a) avg, Theta(n) worst. <b>Open addressing:</b> probe for a free slot, a&lt;=1; linear probing h(k,i)=(h'(k)+i) mod m (primary clustering); quadratic; double hashing h(k,i)=(h1(k)+i.h2(k)) mod m.
+<a name=DAA-Q55></a><h2>DAA-Q55 Hash functions; universal hashing vs rehashing</h2>
+<p>Good function: determined by data, uses all input, uniform, differs for similar strings. Division (k mod m, m prime), multiplication, mid-square, folding. Universal hashing: family H where two distinct keys collide with probability &lt;= 1/m. Rehashing: table nearly full -> double it, re-insert all keys.
+<a name=DAA-Q56></a><h2>DAA-Q56 BST property and traversals</h2>
+<p>Left subtree keys &lt;= node, right &gt;= node. In-order (L,root,R) gives sorted order Theta(n); pre-order (root,L,R); post-order (L,R,root).
+<a name=DAA-Q57></a><h2>DAA-Q57 BST operations</h2>
+<p>Search O(h); min = leftmost, max = rightmost; successor = leftmost of right subtree (else lowest ancestor); insert as a leaf O(h); delete: 0/1 child remove/replace, 2 children replace by successor. All O(h).
+<a name=DAA-Q58></a><h2>DAA-Q58 Red-black trees</h2>
+<p>Root black; NIL leaves black; no red-red; equal black-height on every path -> height O(log n). Rotations restructure preserving BST order. RB-INSERT colours the node red then RB-INSERT-FIXUP (3 cases); RB-DELETE-FIXUP has 4 cases. Both O(log n).
+<hr><p><a href=index.html>Home</a>|<a href=daa-ans.html>Contents</a>|<a href=daa-a7.html>Prev</a>|<a href=daa-a9.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

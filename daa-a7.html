@@ -1,0 +1,14 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>DAA Answers 7 - Divide &amp; Conquer, Search, Heaps</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=daa-ans.html>Contents</a>|<a href=daa-a6.html>Prev</a>|<a href=daa-a8.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>DAA Answers 7 - Divide &amp; conquer, search, heaps</h1>
+<a name=DAA-Q49></a><h2>DAA-Q49 Divide &amp; conquer</h2>
+<p>Divide, conquer (recurse), combine. Needs a relational formula and a stopping condition. Applications: max-min, binary search, merge/quick sort, Hanoi, closest pair, Strassen, FFT, Karatsuba. Pros: beats brute force, cache-friendly, parallel. Cons: memory use, stack overflow.
+<a name=DAA-Q50></a><h2>DAA-Q50 Max-min problem</h2>
+<p>General: 2n-2 comparisons. D&amp;C: T(n)=2T(n/2)+2, T(2)=1 -> 3n/2-2 comparisons. For n=8: 14 vs 10.
+<a name=DAA-Q51></a><h2>DAA-Q51 Binary search</h2>
+<p>Sorted array; compare target with the middle, discard the impossible half. T(n)=T(n/2)+1 -> O(log n).
+<a name=DAA-Q52></a><h2>DAA-Q52 Sequential (linear) search</h2>
+<p>Scan and compare with key K. Best Cbest=1; worst Cworst=n; average with success probability p: <b>Cavg=p(n+1)/2+(1-p)n</b> (p=1 -> (n+1)/2; p=0 -> n).
+<a name=DAA-Q53></a><h2>DAA-Q53 Max-priority-queue operations</h2>
+<p>MAXIMUM O(1); EXTRACT-MAX, INCREASE-KEY, INSERT, DELETE all O(log n).
+<hr><p><a href=index.html>Home</a>|<a href=daa-ans.html>Contents</a>|<a href=daa-a6.html>Prev</a>|<a href=daa-a8.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

@@ -1,0 +1,8 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>CSC 718 Answers 5 - Content Delivery &amp; Edge</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=is-ans.html>Contents</a>|<a href=is-a4.html>Prev</a>|<a href=is-a6.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>CSC 718 Answers 5 - Content delivery &amp; edge computing</h1>
+<a name=IS-Q5a></a><h2>IS-Q5a Anycast vs unicast</h2>
+<p>Unicast: one IP address = one machine; all traffic goes there. <b>Anycast:</b> many machines share one IP; the internet's routing picks the shortest path, so each user reaches the nearest server with no central dispatcher. Benefits: lower latency, resilience (if a site drops, traffic goes to the next nearest), DDoS absorption. "Nearest" is in routing terms, not physical distance or load.
+<a name=IS-Q5b></a><h2>IS-Q5b Reactive vs proactive caching at the edge</h2>
+<p><b>Reactive (pull):</b> store after the first request; miss -> fetch -> keep a copy. First user is slower; only caches what is used; best for unpredictable/long-tail content. <b>Proactive (push):</b> predict demand and push content before it is requested (e.g. overnight); first user is fast; may cache unused data; best for predictable/scheduled content (a release, live event, big update). Edge storage is small, so the real question is what to keep.
+<hr><p><a href=index.html>Home</a>|<a href=is-ans.html>Contents</a>|<a href=is-a4.html>Prev</a>|<a href=is-a6.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

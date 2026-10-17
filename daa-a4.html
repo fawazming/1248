@@ -1,0 +1,19 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>DAA Answers 4 - Recurrences</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=daa-ans.html>Contents</a>|<a href=daa-a3.html>Prev</a>|<a href=daa-a5.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>DAA Answers 4 - Recurrences</h1>
+<a name=DAA-Q27></a><h2>DAA-Q27 T(n)=T(n-1)+1, T(1)=1 (back-substitution)</h2>
+<p>=T(n-2)+2=...=T(1)+(n-1)=n -> <b>Theta(n)</b>.
+<a name=DAA-Q28></a><h2>DAA-Q28 T(n)=2T(n-1), T(1)=1 (iteration)</h2>
+<p>=2^(n-1) -> <b>Theta(2^n)</b>.
+<a name=DAA-Q29></a><h2>DAA-Q29 T(n)=2T(n/2)+n (recursion tree)</h2>
+<p>Each of log2 n levels contributes n -> <b>Theta(n log n)</b>.
+<a name=DAA-Q30></a><h2>DAA-Q30 Master method: T(n)=8T(n/2)+1000n^3</h2>
+<p>a=8,b=2,n^(log_b a)=n^3, f=O(n^(3-e)) -> <b>Case 1: Theta(n^3)</b>.
+<a name=DAA-Q31></a><h2>DAA-Q31 Master method: T(n)=2T(n/2)+10n</h2>
+<p>n^(log_b a)=n, f=Theta(n) -> <b>Case 2: Theta(n log n)</b>.
+<a name=DAA-Q32></a><h2>DAA-Q32 Master method: T(n)=2T(n/2)+n^2</h2>
+<p>n^(log_b a)=n, f=Omega(n^(1+e)), a.f(n/b)=n^2/2&lt;=c.n^2 (c=1/2) -> <b>Case 3: Theta(n^2)</b>.
+<a name=DAA-Q33></a><h2>DAA-Q33 T(n)=4T(n/2)+n (recursion tree)</h2>
+<p>Dominated by leaves n^(log_2 4)=n^2 -> <b>Theta(n^2)</b>.
+<p><b>Master method:</b> T(n)=aT(n/b)+f(n). Compare f(n) with n^(log_b a): Case 1 smaller -> Theta(n^(log_b a)); Case 2 equal -> Theta(n^(log_b a) log n); Case 3 larger (regularity) -> Theta(f(n)).
+<hr><p><a href=index.html>Home</a>|<a href=daa-ans.html>Contents</a>|<a href=daa-a3.html>Prev</a>|<a href=daa-a5.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

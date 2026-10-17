@@ -1,0 +1,14 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>DAA Answers 9 - Dynamic Programming</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=daa-ans.html>Contents</a>|<a href=daa-a8.html>Prev</a>|<a href=daa-a10.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>DAA Answers 9 - Dynamic programming</h1>
+<a name=DAA-Q59></a><h2>DAA-Q59 Dynamic programming</h2>
+<p>Break a complex problem into subproblems, solve each once, store results. Needs overlapping subproblems and optimal substructure. Top-down (memoization) or bottom-up (tabulation). Steps: characterise, define recursively, compute bottom-up, construct the solution.
+<a name=DAA-Q60></a><h2>DAA-Q60 Divide &amp; conquer vs DP</h2>
+<p>D&amp;C: recursive, top-down, independent subproblems, repeated work (merge sort). DP: bottom-up, overlapping subproblems, table, each solved once (Fibonacci, matrix chain, LCS).
+<a name=DAA-Q61></a><h2>DAA-Q61 Fibonacci with and without DP</h2>
+<p>F(n)=F(n-1)+F(n-2). Naive recursion O(2^n); memoization/tabulation O(n).
+<a name=DAA-Q62></a><h2>DAA-Q62 Matrix chain multiplication; p={4,10,3,12,20,7}</h2>
+<p>m[i,j]=min over k of m[i,k]+m[k+1,j]+p(i-1)p(k)p(j). Diagonal fill: m[1,2]=120, m[2,3]=360, m[3,4]=720, m[4,5]=1680, m[1,3]=264, m[2,4]=1320, m[3,5]=1140, m[1,4]=1080, m[2,5]=1350, <b>m[1,5]=1344</b>. O(n^3).
+<a name=DAA-Q63></a><h2>DAA-Q63 Longest common subsequence</h2>
+<p>A subsequence deletes elements without reordering. If xm=yn then c[i,j]=c[i-1,j-1]+1; else max(c[i-1,j],c[i,j-1]); 0 if i=0 or j=0. O(mn) time and space.
+<hr><p><a href=index.html>Home</a>|<a href=daa-ans.html>Contents</a>|<a href=daa-a8.html>Prev</a>|<a href=daa-a10.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

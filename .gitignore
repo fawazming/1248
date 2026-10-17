@@ -1,0 +1,9 @@
+# Secrets and local data - never commit these
+.env
+data/*.sqlite
+data/*.sqlite-*
+data/*.db
+data/*.db-*
+
+# Local source material (raw notes used to build the site)
+sources/

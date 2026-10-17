@@ -1,0 +1,13 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>CSC 718 Answers 4 - Cloud &amp; SDN</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=is-ans.html>Contents</a>|<a href=is-a3.html>Prev</a>|<a href=is-a5.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>CSC 718 Answers 4 - Cloud infrastructure &amp; SDN</h1>
+<a name=IS-Q4a></a><h2>IS-Q4a Advantages of SDN in cloud data centres</h2>
+<ol><li>Whole-network view - one controller plans routes and balances load globally.
+<li>Programmable/automated - policies are code pushed to all switches; fits cloud automation.
+<li>Cheap hardware - simple white-box switches; intelligence in software; less vendor lock-in.
+<li>Fast changes - reconfigure by a controller action, matching elastic cloud workloads.
+<li>Works with NFV - services (firewall, load balancer) placed dynamically along paths.</ol>
+<p>Legacy boxes fuse control and data planes, so changes are manual and local. Separating them gives one software-definable source of truth.
+<a name=IS-Q4b></a><h2>IS-Q4b How P4 goes beyond OpenFlow</h2>
+<p>OpenFlow can only match a fixed set of header fields the switch chip was built for; a new header means waiting for the vendor. <b>P4</b> is a protocol-independent data-plane language: you write a parser (read packets), match/action tables (what to do), and a deparser (write packets). The compiler turns it into the switch pipeline at line rate, so new protocols and logic run with no new hardware. OpenFlow made the control plane programmable; P4 makes the data plane programmable too.
+<hr><p><a href=index.html>Home</a>|<a href=is-ans.html>Contents</a>|<a href=is-a3.html>Prev</a>|<a href=is-a5.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>CSC 718 Cheat Sheet</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=is-cheat.html>Cheat</a>|<a href=is-cram.html>Cram</a>|<a href=is-ans.html>Answers</a>|<a href=chat.php>Chat</a><hr>
+<h1>CSC 718 Cheat Sheet</h1>
+<a name=cheat1></a><h2>End-to-end &amp; routing</h2>
+<ul><li>End-to-End: put important jobs at the endpoints; network help is only a speed bonus.
+<li>Middleboxes: NAT (state, breaks direct addressing), firewall (can't see app semantics/encryption), DPI (heavy per-conversation cost, blind to TLS).
+<li>IGP inside an AS (OSPF/IS-IS); BGP between ASes (path-vector, TCP 179).
+<li>BGP selection: LOCAL_PREF, AS_PATH, origin, MED, eBGP&gt;iBGP, IGP metric, router ID.
+<li>RPKI/ROA prove origin ownership (not the whole path); MANRS filters routes.
+<li>MPLS (labels, LSP, QoS, rigid/costly) vs SD-WAN (IPsec tunnels, central control, cheap/best-effort).</ul>
+<a name=cheat2></a><h2>Transport &amp; congestion</h2>
+<ul><li>AIMD; Tahoe resets, Reno halves; Cubic uses a cubic curve.
+<li>Bufferbloat: d_q = q / C; big buffers add delay not speed.
+<li>CoDel: drop early if sojourn &gt; 5 ms for 100 ms.
+<li>BBR: BDP = BtlBw x RTprop; keep ~1 BDP in flight (full pipe, empty queue).
+<li>QUIC/HTTP3: over UDP, independent streams (no HOL blocking), TLS 1.3 built in, 0/1-RTT.</ul>
+<a name=cheat3></a><h2>SDN, edge, IoT</h2>
+<ul><li>SDN: control plane out of the box; OpenFlow flow tables; NFV = software appliances; P4 programs the data plane.
+<li>Anycast: one IP, many servers, nearest wins; unicast: one IP one machine.
+<li>Edge caching: reactive (pull, after request) vs proactive (push, predicted).
+<li>6LoWPAN compresses 40 B IPv6 header to a few bytes; RPL builds a DODAG tree (local repair).
+<li>MQTT (broker pub/sub), CoAP (HTTP over UDP).</ul>
+<a name=cheat4></a><h2>Decentralised</h2>
+<ul><li>P2P: every node client + server. DHT: O(log N) hops, no central directory.
+<li>Consensus: PoW (power-hungry), PoS (stake), PBFT (n &gt;= 3f+1).
+<li>IPFS: find files by content hash.
+<li>IoT blockchain: sign at the sensor, ledger at the edge gateway.</ul>
+<hr><p><a href=index.html>Home</a>|<a href=is-cheat.html>Cheat</a>|<a href=is-cram.html>Cram</a>|<a href=is-ans.html>Answers</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

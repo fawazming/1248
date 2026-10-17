@@ -1,0 +1,12 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>CSC 718 Answers 7 - Decentralised Systems</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=is-ans.html>Contents</a>|<a href=is-a6.html>Prev</a>|<a href=chat.php>Chat</a><hr>
+<h1>CSC 718 Answers 7 - Decentralised systems &amp; blockchain</h1>
+<a name=IS-Q7a></a><h2>IS-Q7a How DHTs find data without a central directory</h2>
+<p>In P2P every node is client and server, so there is no single server to fail. A <b>DHT</b> treats the key space as a giant table split across peers ("a shredded phone book"): each key is hashed into the space, each node keeps a small slice plus a few routing hints, and a lookup hops node to node getting closer each step in about <b>O(log N)</b> hops - no central index. It scales, survives churn, and has no single point of failure.
+<a name=IS-Q7b></a><h2>IS-Q7b Lightweight consensus for an IoT sensor network</h2>
+<p>Three-tier "edge-offloaded ledger": <b>Tier 1 (sensors)</b> sign readings and sleep - no consensus/PoW. <b>Tier 2 (edge gateways)</b> are mains-powered; collect signed readings, run local anomaly detection, hold the ledger, and run lightweight consensus (delegated PoS, PBFT-style voting among a few gateways, or trust-score voting). <b>Tier 3 (cloud)</b> optionally stores hashes of gateway blocks for audit. Integrity: each reading is hashed and signed; readings form hash-chained blocks; only signed readings enter the ledger. This keeps immutability while respecting constrained devices (PoW is impossible on battery nodes).
+<a name=IS-Q8c></a><h2>IS-Q8c CA tasks and the practical assignment</h2>
+<p><b>CA1 (protocol simulation):</b> in NS-3/Mininet compare TCP Cubic vs BBR over a bottleneck link, varying loss (0-5%) and buffer sizes; report throughput and latency.
+<p><b>CA2 (design):</b> a lightweight decentralised telemetry network for 5,000 low-power sensors - protocol choices (6LoWPAN, MQTT, CoAP), edge caching with local anomaly detection, and a lightweight ledger/consensus for tamper-proof auditing.
+<p><b>Practical:</b> boot a minimal Linux (Alpine/TinyCore) from USB as a constrained edge node; run an encryption benchmark comparing AES-256 vs ChaCha20 (cycles, memory, latency); publish metrics via MQTT and hash the payload for ledger prep.
+<hr><p><a href=index.html>Home</a>|<a href=is-ans.html>Contents</a>|<a href=is-a6.html>Prev</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

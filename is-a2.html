@@ -1,0 +1,11 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>CSC 718 Answers 2 - Routing &amp; Traffic Engineering</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=is-ans.html>Contents</a>|<a href=is-a1.html>Prev</a>|<a href=is-a3.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>CSC 718 Answers 2 - Routing &amp; traffic engineering</h1>
+<p><b>Recap.</b> Inside an AS use an IGP (OSPF/IS-IS link-state, or RIP/EIGRP distance-vector). Between ASes use BGP (path-vector, TCP 179). BGP path selection: highest LOCAL_PREF, shortest AS_PATH, lowest origin, lowest MED, eBGP over iBGP, lowest IGP metric, lowest router ID.
+<a name=IS-Q2a></a><h2>IS-Q2a BGP hijacking and how RPKI helps</h2>
+<p>BGP assumes ASes trust each other and has no proof of ownership. A rogue/misconfigured AS announces a network it does not own (e.g. 8.8.8.0/24); because BGP trusts it, the fake route spreads worldwide and traffic is diverted (eavesdrop, black-hole, impersonation). <b>RPKI</b> adds a digital ID: a certificate/ROA proves which AS may announce which block; routers check announcements and reject false ones. Limits: RPKI secures the origin, not the whole path (forged-origin hijacks and route leaks remain), so it is used with MANRS and path validation.
+<a name=IS-Q2b></a><h2>IS-Q2b MPLS vs SD-WAN</h2>
+<p><b>MPLS:</b> short fixed labels; ingress LER adds, LSRs swap via LFIB, egress removes; paths (LSPs) set up with RSVP-TE can reserve bandwidth and guarantee QoS. Reliable but expensive and slow to set up.
+<p><b>SD-WAN:</b> encrypted tunnels (IPsec) over any link (MPLS/broadband/4G/5G); a central controller watches loss/delay/jitter and steers traffic dynamically. Cheap, flexible, central, but best-effort.
+<p><b>Choose SD-WAN</b> for many branches, cost cutting, mixed links, cloud/SaaS traffic, fast central changes, tolerable best-effort. <b>Keep MPLS</b> for strict low steady delay, few critical sites, hard guarantees.
+<hr><p><a href=index.html>Home</a>|<a href=is-ans.html>Contents</a>|<a href=is-a1.html>Prev</a>|<a href=is-a3.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>CSC 718 Cram Sheet</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=is-cheat.html>Cheat</a>|<a href=is-cram.html>Cram</a>|<a href=is-ans.html>Answers</a>|<a href=chat.php>Chat</a><hr>
+<h1>CSC 718 Cram Sheet - last hour</h1>
+<a name=c1></a><h2>Formulas</h2>
+<ul><li>BDP = bandwidth x RTT (bits; /8 = bytes).
+<li>Queue delay d_q = q / C (queue size / link speed).
+<li>Effective RTT = RTprop + B/C.
+<li>Cubic: W(t) = C(t-K)^3 + W_max, C=0.4, beta=0.7.
+<li>Mathis: throughput ~ (MSS/RTT) x (1.22 / sqrt(p)).
+<li>PBFT: n &gt;= 3f+1. DHT lookup: O(log N).</ul>
+<a name=c2></a><h2>Numbers to remember</h2>
+<ul><li>100 Mbps x 40 ms = 500,000 B; 2xBDP buffer = 80 ms; peak RTT = 120 ms.
+<li>IPv6 header 40 B; 6LoWPAN ~2-7 B; 802.15.4 frame 127 B; IPv6 min MTU 1280 B.
+<li>CoDel: 5 ms target, 100 ms interval.
+<li>BGP TCP port 179; MQTT 1883/8883.</ul>
+<a name=c3></a><h2>One-line summaries</h2>
+<ul><li>End-to-End: do real work at the endpoints; network helps speed only.
+<li>BGP: policy routing between companies; RPKI adds proof of ownership.
+<li>MPLS: strict but rigid; SD-WAN: flexible but best-effort.
+<li>Cubic loss-based; BBR model-based; CoDel drops early.
+<li>QUIC/HTTP3 over UDP, independent streams, fast secure handshake.
+<li>SDN: brain out of the box; P4: program the data plane.
+<li>Anycast: one IP, many servers, nearest wins.
+<li>6LoWPAN/RPL: squeeze IPv6 and route on noisy links.
+<li>DHT: distributed phone book; IPFS: find by content; IoT: sign at sensor, ledger at gateway.</ul>
+<hr><p><a href=index.html>Home</a>|<a href=is-cheat.html>Cheat</a>|<a href=is-ans.html>Answers</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>CSC 711 Answers 3 - I/O Subsystem</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=os-ans.html>Contents</a>|<a href=os-a2.html>Prev</a>|<a href=os-a4.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>CSC 711 Answers 3 - I/O subsystem</h1>
+<a name=OS-Q3></a><h2>OS-Q3 Layered I/O subsystem</h2>
+<p>Each layer hides the layer below and offers a cleaner service above (top to bottom):
+<ol><li><b>User-level I/O software:</b> library calls (printf, fread), spoolers, daemons.
+<li><b>Device-independent OS software:</b> buffering, caching, spooling, naming, protection, block-size independence, error reporting.
+<li><b>Device drivers:</b> device-specific code: translate requests to device commands, manage queues, handle status/errors, present a uniform interface.
+<li><b>Interrupt handlers:</b> respond to completion/error interrupts, acknowledge the controller, wake the waiting process.
+<li><b>Device controllers:</b> hardware registers + local buffer that operate the device.
+<li><b>Physical device.</b></ol>
+<p>Requests flow down; interrupts/completions flow up. The lowest software layer (interrupt handler) is minimal and fast; the driver holds device knowledge; the device-independent layer gives the logical, device-neutral interface.
+<a name=OS-Q3b></a><h2>OS-Q3b DMA and the uniform interface</h2>
+<p><b>DMA:</b> with programmed/interrupt I/O the CPU moves one byte/word at a time and is interrupted per transfer. DMA offloads this: the driver programs the DMA controller (memory address, device address, count, direction) and is free to do other work; the controller moves a whole block between the device buffer and memory using cycle stealing, raising only one interrupt per block. Benefits: higher throughput, far lower CPU overhead, overlap of I/O and computation. Trade-off: bus/memory contention and cache coherence.
+<p><b>Uniform interface:</b> devices differ (block vs char, speed, commands, errors). Without a uniform interface the OS would be unmaintainable. A common interface (open/read/write/close/ioctl; block/char abstractions) gives abstraction, portability, code reuse and separation of concerns; ioctl is the escape hatch.
+<p><b>Key point:</b> DMA removes the CPU from data movement; the uniform interface removes the device's identity from higher-level software.
+<hr><p><a href=index.html>Home</a>|<a href=os-ans.html>Contents</a>|<a href=os-a2.html>Prev</a>|<a href=os-a4.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

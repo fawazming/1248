@@ -1,0 +1,12 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>CSC 718 Answers 3 - Transport &amp; Congestion</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=is-ans.html>Contents</a>|<a href=is-a2.html>Prev</a>|<a href=is-a4.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>CSC 718 Answers 3 - Transport &amp; congestion control</h1>
+<a name=IS-Q3a></a><h2>IS-Q3a Bufferbloat and how CoDel fixes it</h2>
+<p>Loss-based TCP (Cubic/Reno) only slows on a lost packet, so it keeps growing the window until a router buffer overflows. Big buffers let a lot of data pile up; the link is already full, so that data is pure waiting: d_q = q / C (queue size / link speed). Bigger buffer = more delay, not more speed = <b>bufferbloat</b>. <b>CoDel</b> watches each packet's sojourn time; if it stays above a target (5 ms) for an interval (100 ms) it drops packets early, TCP slows before the buffer fills, queues stay short.
+<a name=IS-Q3b></a><h2>IS-Q3b How BBR uses the BDP</h2>
+<p>BBR is model-based. It measures <b>BtlBw</b> (max delivery rate) and <b>RTprop</b> (min RTT) and computes <b>BDP = BtlBw x RTprop</b> - the data that fills the pipe with an empty queue. It paces sending at BtlBw and keeps about one BDP in flight: full pipe (max speed) with empty queue (min delay). It periodically probes for bandwidth and drains to re-measure RTprop.
+<a name=IS-Q8a></a><h2>IS-Q8a Why HTTP/3 dropped TCP for QUIC</h2>
+<p>TCP flaws: (1) head-of-line blocking - one ordered stream means one loss stalls everything behind it, even unrelated requests; (2) slow handshakes - TCP plus TLS takes several round-trips. <b>QUIC</b> runs over UDP with independent streams (a loss stalls only its stream), builds in TLS 1.3 and congestion control (1-RTT or 0-RTT), and survives network changes (connection migration). HTTP/3 is HTTP over QUIC.
+<a name=IS-FQ2></a><h2>IS-FQ2 BDP and queue delay (worked maths)</h2>
+<p>100 Mbps, RTT 40 ms. <b>BDP</b> = 100,000,000 x 0.040 = 4,000,000 bits = 500,000 bytes. With a 2xBDP buffer: 1,000,000 bytes = 8,000,000 bits; queue delay = 8,000,000 / 100,000,000 = 0.080 s = <b>80 ms</b>; peak RTT = 40 + 80 = <b>120 ms</b>. BBR keeps about one BDP (500,000 B) in flight, so delay stays near 40 ms. Bonus: Cubic after loss cuts to 0.7 x 2 BDP = 1.4 BDP, leaving about 44 ms.
+<hr><p><a href=index.html>Home</a>|<a href=is-ans.html>Contents</a>|<a href=is-a2.html>Prev</a>|<a href=is-a4.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

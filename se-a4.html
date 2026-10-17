@@ -1,0 +1,28 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>CSC 715 Answers 4 - Architecture &amp; Design</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=se-ans.html>Contents</a>|<a href=se-a3.html>Prev</a>|<a href=se-a5.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>CSC 715 Answers 4 - L7 Architecture + L8 Design &amp; implementation</h1>
+<a name=SE-L7Q1></a><h2>SE-L7Q1 Importance of architecture</h2>
+<p>It is the link between requirements and detailed design and drives quality attributes. Three advantages: stakeholder communication, system analysis (can critical requirements be met?), large-scale reuse.
+<a name=SE-L7Q2></a><h2>SE-L7Q2 The 4+1 view model</h2>
+<p>Logical (objects/classes), Process (runtime processes; performance/availability), Development (decomposition for programmers/managers), Physical (hardware/distribution), +1 Scenarios (use cases linking the four views).
+<a name=SE-L7Q3></a><h2>SE-L7Q3 Model-View-Controller (MVC)</h2>
+<p>Separates presentation/interaction from data. Model = data/operations; View = presentation; Controller = user interaction. Appropriate when the same data has multiple views/interactions (web apps, GUIs).
+<a name=SE-L7Q4></a><h2>SE-L7Q4 Layered architecture</h2>
+<p>Functionality in layers, each using only the layer below. Advantages: incremental development, portability, multi-level security. Disadvantages: performance overhead, hard to separate concerns cleanly.
+<a name=SE-L7Q5></a><h2>SE-L7Q5 How NFRs influence architecture</h2>
+<p>Performance (localise critical ops, few large components); Security (layered, assets innermost); Safety (few safety components); Availability (redundancy, update without stopping); Maintainability (fine-grain, self-contained components).
+<a name=SE-L8Q1></a><h2>SE-L8Q1 OO design activities</h2>
+<ol><li>System context and interactions (boundaries, context/interaction models).
+<li>Architectural design (major components, patterns).
+<li>Object class identification (tangible entities, roles, events).
+<li>Design models (class, sequence, state diagrams).
+<li>Interface specification (signatures and semantics).</ol>
+<a name=SE-L8Q2></a><h2>SE-L8Q2 Design pattern elements</h2>
+<p>A well-tried solution to a common problem in reusable form. Elements: Name, Problem (when to use), Solution (parts, relationships, responsibilities), Consequences (results/trade-offs). Supports concept reuse, a common vocabulary and accumulated wisdom.
+<a name=SE-L8Q3></a><h2>SE-L8Q3 Configuration management</h2>
+<p>Managing a changing system so the right component versions are used and changes are controlled. Activities: version management, system integration, problem tracking.
+<a name=SE-L8Q4></a><h2>SE-L8Q4 Host-target development</h2>
+<p>Develop/compile on a host machine, then download and run on the target embedded device. Common in embedded systems because the target has limited resources, no keyboard/screen, or a different architecture - so the dev environment cannot run on it.
+<a name=SE-L8Q5></a><h2>SE-L8Q5 Open-source issues and licences</h2>
+<p>Issues: licensing, quality/support, evolution, security, integration effort. Licences range from permissive (MIT, Apache) to copyleft (GPL - derivatives must stay open).
+<hr><p><a href=index.html>Home</a>|<a href=se-ans.html>Contents</a>|<a href=se-a3.html>Prev</a>|<a href=se-a5.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

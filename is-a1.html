@@ -1,0 +1,13 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>CSC 718 Answers 1 - End-to-End Principle</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=is-ans.html>Contents</a>|<a href=is-a2.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>CSC 718 Answers 1 - End-to-End principle &amp; middleboxes</h1>
+<a name=IS-Q1a></a><h2>IS-Q1a How NATs and firewalls challenge the End-to-End Principle</h2>
+<p>The principle says important functions belong at the endpoints, because only they know enough; network help is a speed bonus, not a guarantee. NATs and firewalls are middleboxes that put important jobs in the middle.
+<ul><li><b>NAT</b> rewrites addresses/ports so many devices share one public address; it must keep per-conversation state, so any host can no longer directly address any other. Apps need workarounds (STUN, hole-punching).
+<li><b>Firewall</b> centralises security, but a firewall cannot understand application meaning and is blind to encrypted traffic - exactly what only endpoints can do fully.</ul>
+<p>They exist for real reasons (IPv4 shortage, cheap perimeter defence) but they do not refute the principle: true guarantees (encryption, authentication, access control) still live at the endpoints.
+<a name=IS-Q1b></a><h2>IS-Q1b Strict network security vs global scalability (DPI)</h2>
+<p>The trade-off is "remembering things" vs "just forwarding". The internet scales because core routers are simple and forgetful. <b>DPI</b> looks deep into every packet and matches attack signatures, needing memory per conversation and heavy processing, so cost grows with traffic x conversations x signatures - exactly what does not scale. It is also blind to end-to-end encryption (TLS/QUIC). Resolution: keep the core simple/stateless; do security at the endpoints; inspect only at the edge or on samples.
+<a name=IS-FQ1></a><h2>IS-FQ1 End-to-End vs middleboxes and CDNs</h2>
+<p>Principle: important jobs at the endpoints. Middleboxes (NAT, firewall, DPI) violate the simple transparent network but persist as trade-offs. <b>CDNs</b> (anycast + edge caching) put content and some processing inside the network, but a CDN is really an application-layer overlay built by endpoints, exploiting routing and performance - which the principle allows. So CDNs stretch the principle rather than break it; real correctness jobs stay at the endpoints.
+<hr><p><a href=index.html>Home</a>|<a href=is-ans.html>Contents</a>|<a href=is-a2.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

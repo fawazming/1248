@@ -1,0 +1,12 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>CSC 711 Answers 1 - Memory Management</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=os-ans.html>Contents</a>|<a href=os-a2.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>CSC 711 Answers 1 - Memory management</h1>
+<a name=OS-Q1a></a><h2>OS-Q1a i386 page-table entry fields</h2>
+<p>i386 (32-bit protected mode) uses two-level paging. A linear address splits into 10-bit page-directory index + 10-bit page-table index + 12-bit offset. CR3 points to the page directory; each PDE points to a page table of 1024 PTEs; each PTE describes one 4 KB frame. A PTE is a 32-bit descriptor: frame address in bits 31-12 (low 12 bits are always 0), control flags in bits 11-0.
+<p><b>Fields:</b> P Present(0) - 1=in memory, else page fault. R/W(1) - 0 read-only, 1 writable. U/S(2) - 0 supervisor, 1 user. PWT(3) - write-through. PCD(4) - cache disable. A Accessed(5) - set on use (for replacement). D Dirty(6) - set on write. PAT/PS(7) - attribute / page size. G Global(8) - TLB entry not flushed on CR3 reload. AVL(11-9) - free for OS. Frame(31-12) - physical frame number: physical = (PTE[31:12]&lt;&lt;12) OR offset.
+<p><b>MMU role:</b> on each access it walks CR3 -> PDE -> PTE, checks P, U/S, R/W, sets A (and D on write), caches the translation in the TLB, and builds the physical address. Violations trap to the OS.
+<a name=OS-Q1b></a><h2>OS-Q1b Address calculations (4 KB pages, 32-bit)</h2>
+<p>(i) Page size 4 KB = 2^12, so <b>offset = 12 bits</b>, <b>page number = 32-12 = 20 bits</b>.
+<p>(ii) Virtual pages = 2^20 = 1,048,576, so one PTE per page = <b>1,048,576 entries</b>. At 4 bytes each: 2^20 x 2^2 = 2^22 bytes = <b>4 MB per process</b> (contiguous).
+<p><b>Why it matters:</b> a flat table wastes 4 MB per process and must be contiguous - the reason real systems use multi-level (10-10-12) or inverted page tables.
+<hr><p><a href=index.html>Home</a>|<a href=os-ans.html>Contents</a>|<a href=os-a2.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

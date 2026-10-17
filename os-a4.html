@@ -1,0 +1,21 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>CSC 711 Answers 4 - OS Structure &amp; Deadlock</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=os-ans.html>Contents</a>|<a href=os-a3.html>Prev</a>|<a href=os-a5.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>CSC 711 Answers 4 - OS structure &amp; deadlock</h1>
+<a name=OS-Q4></a><h2>OS-Q4 Monolithic vs client-server (microkernel)</h2>
+<p><b>Organisation.</b> Monolithic: all core services (process/memory, file system, drivers, networking) run in one kernel in supervisor mode, one address space; components call each other directly (UNIX, MS-DOS). Microkernel: a minimal kernel provides IPC, CPU scheduling, low-level memory and interrupts; all other services run as user-space servers; applications are clients (Mach, MINIX 3, QNX).
+<p><b>Invocation.</b> Monolithic: system call/trap, then ordinary procedure calls in the same space. Client-server: message passing over IPC (user -> kernel -> server), with context switches and message copying.
+<p><b>Implications.</b> Reliability: monolithic weak (one bug can crash all); microkernel strong (isolated servers restart). Performance: monolithic faster (direct calls); microkernel slower (IPC tax). Extensibility: monolithic weak (recompile/relink); microkernel strong (add/replace a server).
+<p><b>Trade-off:</b> performance vs reliability/extensibility; real systems use hybrids.
+<a name=OS-Q5></a><h2>OS-Q5 Deadlock and the four Coffman conditions</h2>
+<p>A deadlock is a set of two or more processes permanently blocked, each waiting for an event that only another blocked process in the set can cause. The four necessary conditions (all must hold at once):
+<ul><li><b>Mutual exclusion</b> - a resource is non-sharable.
+<li><b>Hold and wait</b> - a process holds one resource while waiting for others.
+<li><b>No preemption</b> - resources are released only voluntarily.
+<li><b>Circular wait</b> - a closed chain P0 waits P1, P1 waits P2, ... Pn waits P0.</ul>
+<p>Necessary but not sufficient: breaking any one makes deadlock impossible; all four make it possible but not certain. Mnemonic: <b>M-H-N-C</b> ("Must Have No Circles").
+<a name=OS-Q5b></a><h2>OS-Q5b Prevention vs avoidance vs detection</h2>
+<p><b>Prevention (static):</b> design so a condition can never hold - request all resources at once, total ordering, preemption, shareable resources.
+<p><b>Avoidance (dynamic):</b> allow the conditions but use maximum-claim info to stay in a safe state; run a safety check (Banker's Algorithm) on each request; else wait.
+<p><b>Detection &amp; recovery:</b> let deadlock happen, build a wait-for graph, find a cycle, then terminate processes or preempt with rollback.
+<p><b>Trade-offs.</b> Prevention: lowest utilisation, no extra info, cheap runtime, deadlock impossible. Avoidance: good utilisation, needs max claims, high runtime (O(n^2 m)). Detection: highest utilisation, only current state, periodic O(n^2) + costly recovery. Most general-purpose OSes use detection or partial ordering.
+<hr><p><a href=index.html>Home</a>|<a href=os-ans.html>Contents</a>|<a href=os-a3.html>Prev</a>|<a href=os-a5.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

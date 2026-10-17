@@ -1,0 +1,20 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>DAA Answers 3 - Asymptotic Notation</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=daa-ans.html>Contents</a>|<a href=daa-a2.html>Prev</a>|<a href=daa-a4.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>DAA Answers 3 - Asymptotic notation</h1>
+<a name=DAA-Q20></a><h2>DAA-Q20 O, Omega, Theta</h2>
+<ul><li><b>O (upper):</b> t(n)&lt;=c.g(n) for all n&gt;=n0 (positive c).
+<li><b>Omega (lower):</b> t(n)&gt;=c.g(n) for all n&gt;=n0.
+<li><b>Theta (tight):</b> c1.g(n)&lt;=t(n)&lt;=c2.g(n) for all n&gt;=n0. Theta is the most precise.</ul>
+<a name=DAA-Q21></a><h2>DAA-Q21 Little-oh</h2>
+<p>f(n)=o(g(n)): for every c&gt;0 there is n0 with f(n)&lt;c.g(n) for all n&gt;=n0 (growth strictly slower). E.g. n=o(n^2), but n^2 is not o(n^2).
+<a name=DAA-Q22></a><h2>DAA-Q22 Order of growth</h2>
+<p>Performance as a function of input size n; keep the leading term, drop constants. 2^n and n! are exponential growth functions.
+<a name=DAA-Q23></a><h2>DAA-Q23 Prove (a) 3n+2=O(n), (b) 8n^2+2n-3=Omega(n^2), (c) 3n+2=Theta(n)</h2>
+<p>(a) 3n+2&lt;=4n, n&gt;=2. (b) 8n^2+2n-3&gt;=7n^2, n&gt;=1. (c) 3n&lt;=3n+2&lt;=4n, n&gt;=2.
+<a name=DAA-Q24></a><h2>DAA-Q24 Efficiency classes</h2>
+<p>1 constant; log n binary search; n linear; n log n merge/quick/heap; n^2 simple sorts; n^3 matrix mult; 2^n Hanoi; n! combinatorial. Order: <b>1&lt;log n&lt;n&lt;n log n&lt;n^2&lt;n^3&lt;2^n&lt;n!</b>
+<a name=DAA-Q25></a><h2>DAA-Q25 Useful property</h2>
+<p>O(g1)+O(g2)=O(max{g1,g2}); also for Omega and Theta. Total governed by the slower part, e.g. O(n)+O(n^2)=O(n^2).
+<a name=DAA-Q26></a><h2>DAA-Q26 Control structures</h2>
+<p>Sequencing: sum then max. If-then-else: condition + max rule. For loop: nested loops multiply (O(n^2)). While loop: track the decreasing function / treat as recursive.
+<hr><p><a href=index.html>Home</a>|<a href=daa-ans.html>Contents</a>|<a href=daa-a2.html>Prev</a>|<a href=daa-a4.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

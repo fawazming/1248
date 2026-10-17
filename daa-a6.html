@@ -1,0 +1,18 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>DAA Answers 6 - Sorting</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=daa-ans.html>Contents</a>|<a href=daa-a5.html>Prev</a>|<a href=daa-a7.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>DAA Answers 6 - Sorting</h1>
+<a name=DAA-Q42></a><h2>DAA-Q42 Bubble sort</h2>
+<p>Compare adjacent items, swap if out of order; after each pass the largest bubbles to the end. Comparisons n(n-1)/2 -> O(n^2); best O(n). Stable, in-place, O(1) space.
+<a name=DAA-Q43></a><h2>DAA-Q43 Selection sort</h2>
+<p>Find the minimum, swap into the first unsorted slot; repeat (one swap per pass). Must always scan for the minimum, so O(n^2) in all cases; in-place, not stable.
+<a name=DAA-Q44></a><h2>DAA-Q44 Insertion sort</h2>
+<p>Insert each element into its place in a growing sorted region. Best O(n), average/worst O(n^2), O(1) space. Advantages: simple, good on small/almost-sorted data, stable, in-place, online.
+<a name=DAA-Q45></a><h2>DAA-Q45 Merge sort</h2>
+<p>Split into halves, sort recursively, merge with three pointers. T(n)=2T(n/2)+n -> O(n log n) all cases; space O(n). Stable, not in-place. Inversion counting, external sorting.
+<a name=DAA-Q46></a><h2>DAA-Q46 Quick sort</h2>
+<p>Pick a pivot, partition (left &lt;= pivot &lt; right), recurse. Worst (sorted input) O(n^2); average/best O(n log n). Not stable, in-place.
+<a name=DAA-Q47></a><h2>DAA-Q47 Heap sort</h2>
+<p>Max-heap: parent &gt;= children; PARENT=i/2, LEFT=2i, RIGHT=2i+1. MAX-HEAPIFY O(log n); BUILD-MAX-HEAP O(n); HEAP-SORT swaps root/last and re-heapifies -> O(n log n). In-place, not stable.
+<a name=DAA-Q48></a><h2>DAA-Q48 Counting, bucket, radix</h2>
+<p>Counting: integers 1..k; arrays A, B, C; stable; Theta(n+k). Bucket: uniform [0,1); n buckets, sort each; average linear. Radix: stable sort digit by digit LSD to MSD; Theta(d(n+k)).
+<hr><p><a href=index.html>Home</a>|<a href=daa-ans.html>Contents</a>|<a href=daa-a5.html>Prev</a>|<a href=daa-a7.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

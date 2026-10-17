@@ -1,0 +1,15 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>CSC 711 Answers 2 - File Systems</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=os-ans.html>Contents</a>|<a href=os-a1.html>Prev</a>|<a href=os-a3.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>CSC 711 Answers 2 - File systems</h1>
+<a name=OS-Q2></a><h2>OS-Q2 FAT vs System V vs FFS</h2>
+<p><b>On-disk layout.</b> FAT: boot sector (BPB) -> two FAT copies -> root directory -> data clusters. System V: boot block -> superblock -> inode list -> 1 KB data blocks. FFS: disk split into cylinder groups, each with a superblock copy, inode bitmap, block bitmap, inode array and 4 KB data blocks (+fragments).
+<p><b>Locating data.</b> FAT uses linked allocation: directory entry stores the first cluster; FAT[cluster] gives the next cluster (0=free, end-of-chain marker); follow the chain. System V uses indexed allocation: the inode has 10 direct + single/double/triple indirect pointers. FFS uses the same inode model but with 4 KB blocks and fragments, and places related data in one cylinder group.
+<p><b>Optimisation.</b> FAT: simple, cache the FAT, but random access walks the chain and it fragments. System V: free inode/block lists for fast allocation, but inodes sit at the start and data after -> long seeks, poor locality. FFS: cylinder groups (locality), large blocks (bandwidth), fragments (small files), bitmaps (fast allocation) -> about 10-20x throughput over System V.
+<p><b>Key axis:</b> linked (FAT) -> indexed (System V) -> indexed + locality (FFS).
+<a name=OS-Q2b></a><h2>OS-Q2b How FFS cylinder groups improve on System V</h2>
+<p>In System V inodes are at the start and data after, so every open causes a long head travel, and the free list scatters a file's blocks. FFS makes each cylinder group a self-contained mini-filesystem:
+<ul><li><b>Metadata/data locality:</b> a file's inode is in the same group as its data -> short intra-group seeks.
+<li><b>Better as disk fills:</b> bitmaps + a policy that keeps a file's blocks in one group while spreading files across groups (graceful degradation).
+<li><b>Less seek/rotation latency:</b> directories with inodes, large blocks + fragments.</ul>
+<p>Net effect: roughly an order-of-magnitude throughput gain. Keyword: <b>locality of reference</b>.
+<hr><p><a href=index.html>Home</a>|<a href=os-ans.html>Contents</a>|<a href=os-a1.html>Prev</a>|<a href=os-a3.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

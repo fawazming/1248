@@ -1,0 +1,13 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>CSC 711 Answers 5 - Scheduling</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=os-ans.html>Contents</a>|<a href=os-a4.html>Prev</a>|<a href=chat.php>Chat</a><hr>
+<h1>CSC 711 Answers 5 - Scheduling</h1>
+<a name=OS-Q6a></a><h2>OS-Q6a Process states (Ready, Running, Blocked)</h2>
+<p><b>Ready:</b> runnable and in memory, waiting only for the scheduler; sits in the ready queue. <b>Running:</b> executing on the CPU (one per core). <b>Blocked:</b> cannot proceed until an external event (I/O, signal, lock); not eligible even if the CPU is idle.
+<p><b>Transitions:</b> New->Ready (admitted); Ready->Running (dispatch); Running->Ready (<b>preempt</b>, e.g. time slice expires); Running->Blocked (I/O request/wait); Blocked->Ready (event occurs); Running->Terminated (exit).
+<p><b>Key:</b> the Running->Ready arrow exists only in pre-emptive systems; in non-pre-emptive systems a process keeps the CPU until it blocks or exits.
+<a name=OS-Q6b></a><h2>OS-Q6b FCFS/RR, Timeslice Priority, Multi-level Queues</h2>
+<p><b>FCFS/RR.</b> FCFS: non-pre-emptive FIFO, runs to completion. RR: pre-emptive with a fixed quantum. Strengths: FCFS trivial, no starvation; RR bounds response time, fair. Weaknesses: FCFS convoy effect; RR quantum-sensitive (too small = overhead, too large = FCFS), ignores priority. Best: FCFS batch/similar long jobs; RR interactive time-sharing.
+<p><b>Timeslice Priority.</b> Highest-priority ready process runs for its slice; equal priorities round-robin; static or dynamic (aging). Strengths: reflects importance, no monopolising. Weaknesses: starvation without aging, priority inversion, tuning. Best: real-time/embedded/mixed workloads.
+<p><b>Multiple Priority Queues (MLFQ).</b> Several queues by priority, often feedback migration (CPU-bound demoted, interactive kept high). Strengths: handles heterogeneous workloads without knowing job length. Weaknesses: complex tuning, starvation, gaming, overhead. Best: general-purpose time-sharing.
+<p><b>Summary:</b> FCFS batch; RR interactive; Priority importance; MLFQ general mixed.
+<hr><p><a href=index.html>Home</a>|<a href=os-ans.html>Contents</a>|<a href=os-a4.html>Prev</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>CSC 711 Cram Sheet</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=os-cheat.html>Cheat</a>|<a href=os-cram.html>Cram</a>|<a href=os-ans.html>Answers</a>|<a href=chat.php>Chat</a><hr>
+<h1>CSC 711 Cram Sheet - last hour</h1>
+<a name=c1></a><h2>Numbers to memorise</h2>
+<ul><li>Page 4 KB = 2^12; offset 12 bits; page number 20 bits.
+<li>2^20 = 1,048,576 PTEs; x4 B = 4 MB flat table.
+<li>i386 split: 10 (dir) - 10 (table) - 12 (offset); PTE 32 bits.
+<li>System V block 1 KB; FFS block 4 KB.</ul>
+<a name=c2></a><h2>Mnemonics</h2>
+<ul><li>Coffman: <b>M-H-N-C</b> = Mutual exclusion, Hold-and-wait, No preemption, Circular wait.
+<li>FFS wins: <b>C-B-F-B</b> = Cylinder groups, Big blocks, Fragments, Bitmaps.
+<li>PTE bits bit0 up: P R/W U/S PWT PCD A D PAT G.
+<li>I/O layers: hardware -> interrupt -> driver -> device-independent -> user-level.</ul>
+<a name=c3></a><h2>One-line contrasts</h2>
+<ul><li>FAT = linked chain; inode = indexed.
+<li>System V separates inodes/data (long seeks); FFS co-locates (locality).
+<li>Programmed I/O = per byte; DMA = per block, one interrupt.
+<li>Monolithic = one privileged space; microkernel = user-space servers over IPC.
+<li>Prevention = break a condition; avoidance = Banker's safe state.
+<li>Non-pre-emptive = no Running->Ready; pre-emptive = can remove from CPU.</ul>
+<a name=c4></a><h2>Scheduling</h2>
+<ul><li>FCFS (batch), RR (interactive), Timeslice Priority (importance/real-time), MLFQ (general mixed).
+<li>Watch: convoy effect, starvation, aging, priority inversion, quantum size.</ul>
+<hr><p><a href=index.html>Home</a>|<a href=os-cheat.html>Cheat</a>|<a href=os-ans.html>Answers</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

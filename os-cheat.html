@@ -1,0 +1,23 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>CSC 711 Cheat Sheet</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=os-cheat.html>Cheat</a>|<a href=os-cram.html>Cram</a>|<a href=os-ans.html>Answers</a>|<a href=chat.php>Chat</a><hr>
+<h1>CSC 711 Cheat Sheet</h1>
+<a name=cheat1></a><h2>Memory management</h2>
+<ul><li>i386: 10-10-12 two-level paging; CR3 -> PDE -> PTE; 4 KB pages.
+<li>PTE 32 bits: frame in 31-12; flags P,R/W,U/S,PWT,PCD,A,D,PAT,G + AVL.
+<li>4 KB pages, 32-bit: offset 12, page number 20, 2^20=1,048,576 PTEs, 4 MB per process flat.
+<li>MMU: walks tables, checks P/U-S/R-W, sets A and D, caches in TLB.</ul>
+<a name=cheat2></a><h2>File systems</h2>
+<ul><li>FAT: linked allocation (follow chain); System V: indexed inode (10 direct + indirect); FFS: indexed + locality.
+<li>FFS wins (C-B-F-B): Cylinder groups, Big blocks, Fragments, Bitmaps.
+<li>Locality of reference -> short seeks -> large throughput gain over System V.</ul>
+<a name=cheat3></a><h2>I/O, structure, deadlock</h2>
+<ul><li>I/O layers: hardware -> interrupt handler -> device driver -> device-independent -> user-level.
+<li>DMA: one interrupt per block (not per byte); CPU freed.
+<li>Monolithic = speed; microkernel = reliability + extensibility (pays IPC tax).
+<li>Coffman M-H-N-C: Mutual exclusion, Hold-and-wait, No preemption, Circular wait.
+<li>Prevention (rules), Avoidance (Banker's/safe state), Detection (wait-for cycle + recovery).</ul>
+<a name=cheat4></a><h2>Scheduling</h2>
+<ul><li>States: Ready / Running / Blocked; Running->Ready = pre-emption.
+<li>FCFS batch (convoy effect); RR interactive (quantum-sensitive); Timeslice Priority (importance); MLFQ general mixed.
+<li>Keywords: aging, priority inversion, quantum, convoy effect.</ul>
+<hr><p><a href=index.html>Home</a>|<a href=os-cheat.html>Cheat</a>|<a href=os-cram.html>Cram</a>|<a href=os-ans.html>Answers</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>

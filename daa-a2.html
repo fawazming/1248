@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=us-ascii"><title>DAA Answers 2 - Analysis Framework</title></head><body><a name=top></a>
+<p><a href=index.html>Home</a>|<a href=daa-ans.html>Contents</a>|<a href=daa-a1.html>Prev</a>|<a href=daa-a3.html>Next</a>|<a href=chat.php>Chat</a><hr>
+<h1>DAA Answers 2 - Analysis framework</h1>
+<a name=DAA-Q10></a><h2>DAA-Q10 Space and time complexity</h2>
+<p>Space = fixed part + variable part: <b>S(P)=c+Sp</b> (c = code/constants, Sp = instance characteristics). Time T(P)=compile time+run time; run time = sum of instruction times for the instance.
+<a name=DAA-Q11></a><h2>DAA-Q11 Basic operation; running time</h2>
+<p>The operation contributing most to total time, usually in the innermost loop. <b>T(n) ~ cop x C(n)</b>, cop = time per basic op, C(n) = number of executions.
+<a name=DAA-Q12></a><h2>DAA-Q12 Worst, best, average, amortized</h2>
+<p>Worst = longest input of size n (sequential search n). Best = fastest input (1). Average = typical input with a probability distribution: Cavg(n)=p(n+1)/2+(1-p)n. Amortized = total for n ops is much better than n x worst-case of one. Average is not the average of best and worst.
+<a name=DAA-Q13></a><h2>DAA-Q13 Measuring input size and running time</h2>
+<p>Framework: input size -> units for running time -> orders of growth -> worst/best/average. Size examples: list length; matrix order; characters/words. Count basic-operation executions instead of seconds.
+<a name=DAA-Q14></a><h2>DAA-Q14 Largest element</h2>
+<p>Size n, op = comparison, no case variation: C(n)=n-1 -> <b>Theta(n)</b>.
+<a name=DAA-Q15></a><h2>DAA-Q15 Element uniqueness</h2>
+<p>Worst case (all distinct): C(n)=(n-1)n/2 -> <b>Theta(n^2)</b>.
+<a name=DAA-Q16></a><h2>DAA-Q16 Matrix multiplication</h2>
+<p>Size = order n, op = multiplication: M(n)=n^3 -> <b>Theta(n^3)</b>.
+<a name=DAA-Q17></a><h2>DAA-Q17 Count binary digits</h2>
+<p>Operation is the comparison n&gt;1; n halves each time -> floor(log2 n)+1 -> <b>Theta(log n)</b>.
+<a name=DAA-Q18></a><h2>DAA-Q18 Recursive factorial</h2>
+<p>M(n)=M(n-1)+1, M(0)=0 -> M(n)=n -> <b>Theta(n)</b>.
+<a name=DAA-Q19></a><h2>DAA-Q19 Tower of Hanoi</h2>
+<p>M(n)=2M(n-1)+1, M(1)=1 -> M(n)=2^n-1 -> <b>Theta(2^n)</b>. n=3 gives 7 moves.
+<hr><p><a href=index.html>Home</a>|<a href=daa-ans.html>Contents</a>|<a href=daa-a1.html>Prev</a>|<a href=daa-a3.html>Next</a>|<a href=#top>Top</a>|<a href=chat.php>Chat</a></body></html>
