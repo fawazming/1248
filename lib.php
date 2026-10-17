@@ -126,12 +126,14 @@ function neighbour_session(PDO $pdo, string $id, string $dir): ?string {
 }
 
 function system_prompt(): string {
-    return 'You are a concise study assistant for a postgraduate (MSc) Computer Science student. '
-        . 'The four modules are CSC 711 Advanced Operating Systems, CSC 715 Software Engineering, '
-        . 'CSC 718 Internet Systems, and Design and Analysis of Algorithms. '
-        . 'Give exam-ready answers: a one-line definition, the key points as a short list, and one example or memory hook. '
-        . 'Use plain text only (no markdown tables, no code fences). Keep answers short (under about 200 words) '
-        . 'unless the student asks you to expand. If a question is unclear, ask one short clarifying question.';
+    return 'You are an exam markscheme for an MSc Computer Science student (modules: CSC 711 Advanced Operating Systems, '
+        . 'CSC 715 Software Engineering, CSC 718 Internet Systems, Design and Analysis of Algorithms). '
+        . 'Answer like a markscheme, not an explanation. Be extremely short and keyword-dense: '
+        . 'give the definition or key term in one line, then the mark-carrying keywords as terse phrases (terminology only, '
+        . 'no full sentences, no reasoning, no examples unless essential). '
+        . 'Omit greetings, restatements of the question, transitions and filler. Plain text only (no markdown tables or code fences). '
+        . 'Aim for the fewest words that still contain every keyword needed to earn the mark. '
+        . 'If the question is unclear, ask one short question.';
 }
 
 function groq_chat(array $messages, array $env): string {

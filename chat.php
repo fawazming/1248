@@ -67,11 +67,10 @@ function nav_links(?array $session, ?string $prevId, ?string $nextId): string {
 ?>
 <!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html;charset=utf-8"><title>MSc Study Chatbot</title></head><body><a name=top></a>
 <p><?= nav_links($session, $prevId, $nextId) ?><hr>
-<h1>MSc Study Chatbot</h1>
-<p>Ask about DAA, CSC 711, CSC 715 or CSC 718. Short, exam-ready answers at MSc level. Your chat is saved locally in SQLite.
-<?php if ($session): ?>
-<p><b>Chat:</b> <?= e($session['title']) ?> (<?= count($messages) ?> messages)
-<p><b>History index:</b>
+<h1>Chatbot</h1>
+<?php if ($messages): ?>
+<p><b>Chat:</b> <?= e($session['title']) ?> (<?= count($messages) ?>)
+<p><b>Index:</b>
 <?php
 $n = 0;
 foreach ($messages as $m) {
@@ -79,12 +78,8 @@ foreach ($messages as $m) {
     echo '<a href=#m' . $n . '>' . $n . '</a> ';
 }
 ?>
-<a href=#latest>Latest</a>
-<?php else: ?>
-<p><b>New chat.</b> Type your first question below.
-<?php endif; ?>
+<a href=#latest>Last</a>
 <hr>
-<?php if ($messages): ?>
 <?php
 $n = 0;
 foreach ($messages as $m) {
@@ -94,18 +89,15 @@ foreach ($messages as $m) {
 }
 ?>
 <a name=latest></a>
-<?php else: ?>
-<p><i>No messages yet.</i>
-<?php endif; ?>
 <hr>
-<h2>Your message</h2>
+<?php endif; ?>
 <form method="post" action="chat.php">
 <input type="hidden" name="id" value="<?= e($id) ?>">
-<textarea name="message" rows="5" cols="40" accesskey="m"></textarea>
-<p><input type="submit" value="Send to tutor">
+<textarea name="message" rows="3" cols="30" autofocus accesskey="m"></textarea>
+<p><input type="submit" value="Send">
 </form>
 <?php if ($session): ?>
-<p><a href="chat.php?delete=<?= urlencode($session['id']) ?>">Delete this chat</a>
+<p><a href="chat.php?delete=<?= urlencode($session['id']) ?>">Delete chat</a>
 <?php endif; ?>
 <hr>
 <p><?= nav_links($session, $prevId, $nextId) ?>|<a href=#top>Top</a>
